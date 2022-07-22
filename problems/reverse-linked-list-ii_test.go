@@ -32,7 +32,7 @@ func Test_reverseBetween(t *testing.T) {
 		{
 			"Two elements",
 			args{createList([]int{4, 2}), 1, 2},
-			createList([]int{4, 2}),
+			createList([]int{2, 4}),
 		},
 	}
 	for _, tt := range tests {
