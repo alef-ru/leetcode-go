@@ -30,3 +30,13 @@ func list2slice(head *ListNode) []int {
 	}
 	return result
 }
+
+type intSlice []int
+
+func (slice intSlice) asList() *ListNode {
+	return createList(slice)
+}
+
+func (list *ListNode) asSlice() intSlice {
+	return list2slice(list)
+}
