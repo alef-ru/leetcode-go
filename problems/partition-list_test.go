@@ -18,7 +18,7 @@ func Test_partition(t *testing.T) {
 		{
 			"Example 1",
 			args{intSlice{1, 4, 3, 2, 5, 2}.asList(), 3},
-			intSlice{1, 2, 2, 1, 3, 5}.asList(),
+			intSlice{1, 2, 2, 4, 3, 5}.asList(),
 		},
 		{
 			"Example 2",
