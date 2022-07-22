@@ -1,15 +1,19 @@
 package problems
 
-// Types that used in more than one excercise
+import "fmt"
+
+// Types that are used in more than one exercises
 
 type ListNode struct {
 	Val  int
 	Next *ListNode
 }
 
-func createList(l []int) *ListNode {
+type intSlice []int
+
+func (slice intSlice) asList() *ListNode {
 	var cur, head *ListNode
-	for _, v := range l {
+	for _, v := range slice {
 		prev := cur
 		cur = &ListNode{Val: v}
 		if head == nil {
@@ -21,9 +25,9 @@ func createList(l []int) *ListNode {
 	return head
 }
 
-func list2slice(head *ListNode) []int {
+func (head ListNode) asSlice() intSlice {
 	result := make([]int, 0, 10)
-	cur := head
+	cur := &head
 	for cur != nil {
 		result = append(result, cur.Val)
 		cur = cur.Next
@@ -31,12 +35,6 @@ func list2slice(head *ListNode) []int {
 	return result
 }
 
-type intSlice []int
-
-func (slice intSlice) asList() *ListNode {
-	return createList(slice)
-}
-
-func (list *ListNode) asSlice() intSlice {
-	return list2slice(list)
+func (head ListNode) String() string {
+	return fmt.Sprint(head.asSlice())
 }

@@ -1,7 +1,5 @@
 package problems
 
-import "fmt"
-
 //Runtime: 0 ms, faster than 100.00% of Go online submissions for Partition List.
 //Memory Usage: 2.4 MB, less than 18.52% of Go online submissions for Partition List.
 
@@ -20,7 +18,6 @@ func partition(head *ListNode, x int) *ListNode {
 			lastRight = cur
 		}
 		cur = cur.Next
-		fmt.Println(list2slice(newHeadLeft))
 	}
 	lastLeft.Next = newHeadRight.Next
 	lastRight.Next = nil

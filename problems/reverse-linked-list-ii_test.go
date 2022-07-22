@@ -18,27 +18,27 @@ func Test_reverseBetween(t *testing.T) {
 	}{
 		{
 			"Example from task description",
-			args{createList([]int{1, 2, 3, 4, 5}), 2, 4},
-			createList([]int{1, 4, 3, 2, 5}),
+			args{intSlice{1, 2, 3, 4, 5}.asList(), 2, 4},
+			intSlice{1, 4, 3, 2, 5}.asList(),
 		}, {
 			"Whole list reversion",
-			args{createList([]int{1, 2, 3, 4, 5}), 1, 5},
-			createList([]int{5, 4, 3, 2, 1}),
+			args{intSlice{1, 2, 3, 4, 5}.asList(), 1, 5},
+			intSlice{5, 4, 3, 2, 1}.asList(),
 		}, {
 			"One element",
-			args{createList([]int{42}), 1, 1},
-			createList([]int{42}),
+			args{intSlice{42}.asList(), 1, 1},
+			intSlice{42}.asList(),
 		},
 		{
 			"Two elements",
-			args{createList([]int{4, 2}), 1, 2},
-			createList([]int{2, 4}),
+			args{intSlice{4, 2}.asList(), 1, 2},
+			intSlice{2, 4}.asList(),
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := reverseBetween(tt.args.head, tt.args.left, tt.args.right); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("reverseBetween() = %v, want %v", list2slice(got), list2slice(tt.want))
+				t.Errorf("reverseBetween() = %v, want %v", got, tt.want)
 			}
 		})
 	}
